@@ -1,12 +1,12 @@
 #include <WiFiNINA.h>
 
 // Your Wi-Fi credentials
-char ssid[] = "YOUR_WIFI_HOST";
-char pass[] = "YOUR_WIFI_PASSWORD";
+char ssid[] = "GIMM-Lab";
+char pass[] = "34cP0WwMjdKB71";
 
 
 // Server we want to contact
-char server[] = "YOUR_SERVER_NAME";
+char server[] = "54.234.130.4";
 
 
 WiFiClient client;
@@ -40,7 +40,7 @@ void setup() {
 
 
   Serial.println("Connecting to server...");
-  int port = 1;
+  int port = 3000;
  
   if (client.connect(server, port)) {
 
@@ -50,7 +50,8 @@ void setup() {
 
     // HTTP request
     client.println("POST /api/sensor HTTP/1.1");
-    client.println("Host: 34.214.7.173");
+    client.print("Host: ");
+    client.println(server);
     client.println("Content-Type: application/json");
 
 
